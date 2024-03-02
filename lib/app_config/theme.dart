@@ -35,7 +35,7 @@ class AppColours {
   static const lightOrange2 = Color(0xFFFFB236);
   static const starYellow = Color(0xFFFFC554);
   static const  lightRed = Color(0xFFE93636);
-  static const lightOrange3 = Color(0xFFFF6B4A);
+  static const lightOrange3 = Color(0xFFF24E1E);
   static const splashBackgroundColor = Color(0xFFFCFCFF);
 }
 

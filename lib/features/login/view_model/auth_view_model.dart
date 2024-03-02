@@ -5,6 +5,7 @@ import 'package:fluttermachine_test_1/app_config/ui_helper.dart';
 import 'package:fluttermachine_test_1/app_config/validators_and_formatters.dart';
 import 'package:fluttermachine_test_1/repositories/shared_preferences_repo.dart';
 import 'package:fluttermachine_test_1/rest/repository.dart';
+import 'package:fluttermachine_test_1/app_config/routes.dart' as route;
 
 class AuthViewModel with ChangeNotifier {
   AuthViewModel() {
@@ -43,12 +44,14 @@ class AuthViewModel with ChangeNotifier {
     );
     if (response.data?.message == 'Logged in successfully') {
       savebearertoken(response.data?.token ?? '', context);
+      ShowAlert.showStyledToast('Logged in successfully', context);
     }
   }
 
   savebearertoken(String token, BuildContext context) {
     _prefs.storeFCMToken(token);
     log('Bearer Token: $token');
+    Navigator.of(context).pushReplacementNamed(route.kHomeScreen);
     makeLoadingFalse();
   }
 }

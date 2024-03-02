@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fluttermachine_test_1/models/resp_patient_model.dart';
 import 'package:fluttermachine_test_1/models/resp_success.dart';
 import 'package:fluttermachine_test_1/rest/api_client.dart';
 import 'package:fluttermachine_test_1/rest/server_errors.dart';
@@ -21,6 +22,18 @@ class Repository {
     UserLoginModel response;
     try {
       response = await _apiClient.userLogin(email, password);
+    } catch (e) {
+      ServerError error = ServerError.withError(error: e as DioException);
+      return ServerResponse()..error = error;
+    }
+    return ServerResponse()..data = response;
+  }
+
+  //Patient List
+  Future<ServerResponse<PatientListModel>> getPatientList() async {
+    PatientListModel response;
+    try {
+      response = await _apiClient.getPatientList();
     } catch (e) {
       ServerError error = ServerError.withError(error: e as DioException);
       return ServerResponse()..error = error;

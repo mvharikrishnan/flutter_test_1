@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fluttermachine_test_1/models/resp_patient_model.dart';
 import 'package:fluttermachine_test_1/models/resp_success.dart';
 import 'package:fluttermachine_test_1/rest/interceptors.dart';
 import 'package:fluttermachine_test_1/rest/ip_class.dart';
@@ -24,6 +25,11 @@ abstract class ApiClient {
     @Part(name: 'username') String userName,
     @Part(name: 'password') String passWord,
   );
+
+  @MultiPart()
+  @GET(kPatientList)
+  @Header('Content-Type: multipart/form-data')
+  Future<PatientListModel> getPatientList();
 }
 
 

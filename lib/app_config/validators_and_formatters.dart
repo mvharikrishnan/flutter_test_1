@@ -7,4 +7,16 @@ class ValidatorAndFormatters {
     RegExp regExp = RegExp(p);
     return regExp.hasMatch(email.trim());
   }
+
+  String convertDateTimeFormat(DateTime dateTime) {
+    // datetime to string 31/10/2022 format
+   
+
+    // Format the datetime to the desired format
+    String formattedDate = "${dateTime.day.toString().padLeft(2, '0')}/"
+        "${dateTime.month.toString().padLeft(2, '0')}/"
+        "${dateTime.year}";
+
+    return formattedDate;
+  }
 }

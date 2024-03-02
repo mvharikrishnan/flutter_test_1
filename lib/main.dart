@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttermachine_test_1/app_config/app_router.dart';
 import 'package:fluttermachine_test_1/app_config/theme.dart';
+import 'package:fluttermachine_test_1/features/home/view_model/home_view_model.dart';
 import 'package:fluttermachine_test_1/features/login/view_model/auth_view_model.dart';
 import 'package:fluttermachine_test_1/repositories/shared_preferences_repo.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AuthViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => HomeViewModel(),
         ),
       ],
       child: const MyAppState(),

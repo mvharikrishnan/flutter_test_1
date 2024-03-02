@@ -1,4 +1,4 @@
-# Nuevo Home Services
+# Ayurvedic Centre
 
 A system to book/Register Appointments for Ayurvedic Centre.
 

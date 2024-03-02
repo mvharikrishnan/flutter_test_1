@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:fluttermachine_test_1/models/resp_branch_list_model.dart';
 import 'package:fluttermachine_test_1/models/resp_patient_model.dart';
 import 'package:fluttermachine_test_1/models/resp_success.dart';
+import 'package:fluttermachine_test_1/models/resp_treatment_List_model.dart';
 import 'package:fluttermachine_test_1/rest/interceptors.dart';
 import 'package:fluttermachine_test_1/rest/ip_class.dart';
 import 'package:retrofit/http.dart';
@@ -30,6 +32,16 @@ abstract class ApiClient {
   @GET(kPatientList)
   @Header('Content-Type: multipart/form-data')
   Future<PatientListModel> getPatientList();
+
+  @MultiPart()
+  @GET(kBranch)
+  @Header('Content-Type: multipart/form-data')
+  Future<BranchListModel> getBranchList();
+
+  @MultiPart()
+  @GET(kTreatmentList)
+  @Header('Content-Type: multipart/form-data')
+  Future<TreatmentListModel> getTreatMentList();
 }
 
 

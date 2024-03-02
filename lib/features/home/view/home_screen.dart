@@ -7,7 +7,7 @@ import 'package:fluttermachine_test_1/features/home/widgets/search.dart';
 import 'package:fluttermachine_test_1/features/home/widgets/sort_filter.dart';
 import 'package:fluttermachine_test_1/widgets/custom_submit_button.dart';
 import 'package:provider/provider.dart';
-
+import 'package:fluttermachine_test_1/app_config/routes.dart' as route;
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -82,7 +82,9 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 50,
           width: SizeConfig.screenWidth,
           cornerRadius: 3,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushNamed(route.kRegisterScreen);
+          },
         ),
       ),
     );

@@ -52,6 +52,13 @@ class AuthViewModel with ChangeNotifier {
     _prefs.storeFCMToken(token);
     log('Bearer Token: $token');
     Navigator.of(context).pushReplacementNamed(route.kHomeScreen);
+    clearFileds();
     makeLoadingFalse();
+  }
+
+  clearFileds() {
+    loginEmailController.clear();
+    loginPassController.clear();
+    notifyListeners();
   }
 }

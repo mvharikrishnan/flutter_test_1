@@ -25,51 +25,54 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            widget.title!,
-            style: AppTheme().customTextNormal(
-              AppColours.lightBlack,
-              18,
-            ),
-          ),
-          vsBox1,
-          Center(
-            child: Container(
-              decoration: BoxDecoration(
-                color:AppColours.textBoxColor ,
-                borderRadius: BorderRadius.circular(
-                  cornerRadiusLarge,
-                ),
-                border: Border.all(
-                  color: AppColours.grey1,
-                ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 10),
+      child: SizedBox(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.title!,
+              style: AppTheme().customTextNormal(
+                AppColours.lightBlack,
+                18,
               ),
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: TextFormField(
-                obscureText: widget.obscureText ?? false,
-                controller: widget.controller,
-                keyboardType: widget.keyboardType,
-                cursorColor: AppColours.black,
-                decoration: InputDecoration(
-                  counterText: '',
-                  filled: true,
-                  fillColor: AppColours.textBoxColor,
-                  border: InputBorder.none,
-                  hintText: widget.hintText ?? '',
-                  hintStyle: AppTheme().customTextNormal(
-                    AppColours.hintTextColor,
-                    12,
+            ),
+            vsBox1,
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  color:AppColours.textBoxColor ,
+                  borderRadius: BorderRadius.circular(
+                    cornerRadiusLarge,
+                  ),
+                  border: Border.all(
+                    color: AppColours.grey1,
+                  ),
+                ),
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: TextFormField(
+                  obscureText: widget.obscureText ?? false,
+                  controller: widget.controller,
+                  keyboardType: widget.keyboardType,
+                  cursorColor: AppColours.black,
+                  decoration: InputDecoration(
+                    counterText: '',
+                    filled: true,
+                    fillColor: AppColours.textBoxColor,
+                    border: InputBorder.none,
+                    hintText: widget.hintText ?? '',
+                    hintStyle: AppTheme().customTextNormal(
+                      AppColours.hintTextColor,
+                      12,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

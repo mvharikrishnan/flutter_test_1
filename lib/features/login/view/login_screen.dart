@@ -79,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   vsBox1,
                   CustomTextField(
-                    controller: auth.loginEmailController,
+                    controller: auth.loginPassController,
                     title: 'Password',
                     hintText: 'Enter Password',
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttermachine_test_1/app_config/routes.dart' as route;
+import 'package:fluttermachine_test_1/features/login/view/login_screen.dart';
 import 'package:fluttermachine_test_1/features/splash_screen/view/splash_screen.dart';
 
 class AppRouter {
@@ -9,6 +10,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) {
             return const SplashScreen();
+          },
+        );
+
+      case route.kLoginScreen:
+        return MaterialPageRoute(
+          builder: (context) {
+            return const LoginScreen();
           },
         );
     }

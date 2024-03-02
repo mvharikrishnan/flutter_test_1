@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttermachine_test_1/app_config/app_router.dart';
 import 'package:fluttermachine_test_1/app_config/theme.dart';
+import 'package:fluttermachine_test_1/features/login/view_model/auth_view_model.dart';
 import 'package:fluttermachine_test_1/repositories/shared_preferences_repo.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttermachine_test_1/app_config/routes.dart' as route;
@@ -25,7 +26,14 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return const MyAppState();
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AuthViewModel(),
+        ),
+      ],
+      child: const MyAppState(),
+    );
   }
 }
 

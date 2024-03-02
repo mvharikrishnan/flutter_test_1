@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColours {
-  static const primary = Color(0XFF5FCD70);
-  static const blueGradEnd = Color(0XFF53BBF9);
+  static const primary = Color(0XFF006836);
+  static const blueGradEnd = Color.fromARGB(255, 43, 0, 233);
   static const blueGradStart = Color(0XFF9DCEFF);
-  static const secondary = Color(0XFF0E826B);
+  static const secondary = Color(0XFF006837);
   static const textBoxColor = Color(0XFFF7F8F8);
   static const categoryTileColor = Color(0XFFF7F7F7);
   static const white = Color(0XFFFFFFFF);

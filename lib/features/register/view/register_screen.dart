@@ -183,8 +183,8 @@ class RegisterScreen extends StatelessWidget {
                             child: CustomTinyActionButton(
                               onPressed: () => showDialog(
                                 context: context,
-                                builder: (context) =>
-                                    const AddTreatMentDialog(),
+                                builder: (context) => AddTreatMentDialog(
+                                    index: ref.orders!.length - 1),
                               ),
                               title: '+ Add Treatments',
                             ),

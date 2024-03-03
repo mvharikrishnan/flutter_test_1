@@ -11,6 +11,7 @@ class RegisterViewModel extends ChangeNotifier {
     isLoading = false;
   }
   bool isLoading = false;
+  bool treatMentLoading = false;
   final _repository = Repository();
   TextEditingController registerNameController = TextEditingController();
   TextEditingController registerWNumberController = TextEditingController();
@@ -19,16 +20,15 @@ class RegisterViewModel extends ChangeNotifier {
   TextEditingController registerDAmountController = TextEditingController();
   TextEditingController registerAAmountController = TextEditingController();
   TextEditingController registerBAmountController = TextEditingController();
-  List<String> locationList = ['Kochi', 'Kannur','Kozhikode'];
+  List<String> locationList = ['Kochi', 'Kannur', 'Kozhikode'];
   List<TreatMentOrderModel>? orders;
   List<String>? treatMentList;
+  List<Treatment>? treatments;
   List<String>? brachList;
   String? location;
   String? branch;
   String? treatMent;
-  int?
-
-  initialize() {
+  int? initialize() {
     getBranchList();
     getTreatMentList();
   }
@@ -44,9 +44,36 @@ class RegisterViewModel extends ChangeNotifier {
   getTreatMentList() async {
     treatMentList?.clear();
     final response = await _repository.getTreatMentList();
+    treatments = response.data?.treatments ?? [];
     treatMentList = extractTreatMentNames(response.data?.treatments ?? []);
     log(treatMentList.toString());
     notifyListeners();
+  }
+
+  // Function to add TREATEMT model from the value to list
+  getTreatMentFromString(String treatmentname) {
+    Treatment? order;
+    order = findTreatmentByName(treatmentname);
+    TreatMentOrderModel res;
+    res = TreatMentOrderModel(
+      1,
+      treatment: order!,
+      male: 0,
+      female: 0,
+    );
+    orders?.add(res);
+  }
+
+  Treatment? findTreatmentByName(String name) {
+    if (treatments == null) return null;
+
+    for (var treatment in treatments!) {
+      if (treatment.name == name) {
+        return treatment;
+      }
+    }
+
+    return null; // Return null if treatment with the provided name is not found
   }
 
   setLoaction(String? value) {
@@ -59,7 +86,7 @@ class RegisterViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  setTreatMent(String? value){
+  setTreatMent(String? value) {
     treatMent = value;
     notifyListeners();
   }
